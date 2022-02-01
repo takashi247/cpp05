@@ -2,9 +2,11 @@
 
 #include <iostream>
 
-const char* Bureaucrat::GradeTooHighException::kErrMsgGradeTooHigh = "Error: Grade is too high";
+const char* Bureaucrat::GradeTooHighException::kErrMsgGradeTooHigh =
+"Error: Bureaucrat: Grade is too high";
 
-const char* Bureaucrat::GradeTooLowException::kErrMsgGradeTooLow = "Error: Grade is too low";
+const char* Bureaucrat::GradeTooLowException::kErrMsgGradeTooLow =
+"Error: Bureaucrat: Grade is too low";
 
 Bureaucrat::Bureaucrat() {
   // std::cout << "Bureaucrat's default constructor called" << std::endl;
