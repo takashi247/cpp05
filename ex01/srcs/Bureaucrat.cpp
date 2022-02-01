@@ -28,6 +28,8 @@ Bureaucrat::Bureaucrat(Bureaucrat const &other) {
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other) {
   // std::cout << "Bureaucrat's assignation operator called" << std::endl;
   if (this != &other) {
+    const_cast<std::string&>(name_) = other.getName();
+    grade_ = other.getGrade();
   }
   return *this;
 }
