@@ -5,8 +5,10 @@
 int main(void)
 {
   Bureaucrat john("John", 100);
+  Bureaucrat john_copy(john);
 
   std::cout << john << std::endl;
+  std::cout << john_copy << std::endl;
 
   // get promoted
   john.getPromoted();
