@@ -10,7 +10,7 @@ const char* Form::GradeTooHighException::kErrMsgGradeTooHigh =
 const char* Form::GradeTooLowException::kErrMsgGradeTooLow =
 "Error: Form: Grade is too low";
 
-Form::Form(const std::string name, const int grade_to_sign, const int grade_to_execute)
+Form::Form(const std::string &name, const int grade_to_sign, const int grade_to_execute)
     : name_(name),
       is_signed_(false),
       grade_to_sign_(grade_to_sign),
