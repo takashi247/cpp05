@@ -7,10 +7,7 @@ class Bureaucrat {
  public:
   static const int kHighestGrade = 1;
   static const int kLowestGrade = 150;
-  Bureaucrat();
   Bureaucrat(const std::string name, int grade);
-  Bureaucrat(const Bureaucrat &other);
-  Bureaucrat &operator=(const Bureaucrat &other);
   ~Bureaucrat();
   const std::string &getName() const;
   int getGrade() const;
@@ -28,6 +25,9 @@ class Bureaucrat {
   };
 
  private:
+  Bureaucrat();
+  Bureaucrat(const Bureaucrat &other);
+  Bureaucrat &operator=(const Bureaucrat &other);
   const std::string name_;
   int grade_;
 };
