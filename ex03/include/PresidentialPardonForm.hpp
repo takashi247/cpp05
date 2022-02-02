@@ -1,7 +1,7 @@
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
 
-#include "../include/Form.hpp"
+#include "Form.hpp"
 
 class PresidentialPardonForm : public Form {
  public:
