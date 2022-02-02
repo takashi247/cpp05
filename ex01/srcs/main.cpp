@@ -11,7 +11,9 @@ int main(void)
 
   Form form("simple form", 99, 99);
 
+  std::cout << std::endl;
   std::cout << form << std::endl;
+  std::cout << std::endl;
 
   // test exception handling for form
   john.signForm(form);
@@ -20,8 +22,12 @@ int main(void)
   john.getPromoted();
   std::cout << john << std::endl;
 
-  // test exception handling for form
+  // test successful signs
   john.signForm(form);
+
+  std::cout << std::endl;
+  std::cout << form << std::endl;
+  std::cout << std::endl;
 
   // test error handling for Form
   try {
