@@ -13,7 +13,8 @@ SRCS		:= main.cpp \
 				Form.cpp \
 				ShrubberyCreationForm.cpp \
 				RobotomyRequestForm.cpp \
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp \
+				Intern.cpp
 
 OBJS		:= $(addprefix $(OBJSDIR), $(SRCS:.cpp=.o))
 
@@ -30,6 +31,8 @@ RM			:= rm -rf
 DEBUG		:= -g# -fsanitize=address
 
 SHADOW	:= -Wshadow
+
+TEST		:= -D TEST=1
 
 LEAKS   := -D LEAKS=1
 
@@ -58,9 +61,12 @@ debug:		re
 shadow:		CXXFLAGS += $(SHADOW)
 shadow:		re
 
-leaks:		CXXFLAGS += $(LEAKS)
+test:			CXXFLAGS += $(TEST)
+test:			re
+
+leaks:		CXXFLAGS += $(TEST) $(LEAKS)
 leaks:		re
 
 -include $(DEPS)
 
-.PHONY:		all clean fclean re debug shadow leaks
+.PHONY:		all clean fclean re debug shadow test leaks
