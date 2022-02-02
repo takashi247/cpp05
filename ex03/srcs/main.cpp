@@ -1,7 +1,5 @@
 #include "../include/Bureaucrat.hpp"
-#include "../include/ShrubberyCreationForm.hpp"
-#include "../include/RobotomyRequestForm.hpp"
-#include "../include/PresidentialPardonForm.hpp"
+#include "../include/Intern.hpp"
 
 #include <iostream>
 
@@ -13,7 +11,7 @@ void printFooter(std::string footer) {
   std::cout << "---" << footer << "---\n" << std::endl;
 }
 
-void testShrubberyCreationForm() {
+void testShrubberyCreationForm(Form &form) {
   printHeader("start ShrubberyCreationForm class test");
 
   Bureaucrat john("John", 100);
@@ -23,9 +21,6 @@ void testShrubberyCreationForm() {
   std::cout << john << std::endl;
   std::cout << bob << std::endl;
   std::cout << will << std::endl;
-
-  // test for ShrubberyCreationForm
-  ShrubberyCreationForm form("my_home");
 
   std::cout << std::endl;
   std::cout << form << std::endl;
@@ -47,7 +42,7 @@ void testShrubberyCreationForm() {
   printFooter("end ShrubberyCreationForm class test");
 }
 
-void testRobotomyRequestForm() {
+void testRobotomyRequestForm(Form &form) {
   printHeader("start RobotomyRequestForm class test");
 
   Bureaucrat john("John", 30);
@@ -57,9 +52,6 @@ void testRobotomyRequestForm() {
   std::cout << john << std::endl;
   std::cout << bob << std::endl;
   std::cout << will << std::endl;
-
-  // test for ShrubberyCreationForm
-  RobotomyRequestForm form("Minister");
 
   std::cout << std::endl;
   std::cout << form << std::endl;
@@ -81,7 +73,7 @@ void testRobotomyRequestForm() {
   printFooter("end RobotomyRequestForm class test");
 }
 
-void testPresidentialPardonForm() {
+void testPresidentialPardonForm(Form &form) {
   printHeader("start PresidentialPardonForm class test");
 
   Bureaucrat john("John", 1);
@@ -91,9 +83,6 @@ void testPresidentialPardonForm() {
   std::cout << john << std::endl;
   std::cout << bob << std::endl;
   std::cout << will << std::endl;
-
-  // test for ShrubberyCreationForm
-  PresidentialPardonForm form("Prime Minister");
 
   std::cout << std::endl;
   std::cout << form << std::endl;
@@ -115,10 +104,46 @@ void testPresidentialPardonForm() {
   printFooter("end PresidentialPardonForm class test");
 }
 
+void testIntern() {
+  printHeader("start Intern class test");
+
+  Intern someRandomIntern;
+  Form* scf;
+  Form* rrf;
+  Form* ppf;
+  Form* invalid_form;
+
+  // test makeForm functions
+  scf = someRandomIntern.makeForm("shrubbery creation form", "my_home");
+  rrf = someRandomIntern.makeForm("robotomy request form", "Minister");
+  ppf = someRandomIntern.makeForm("presidential pardon form", "Prime Minister");
+
+  // test invalid form exception
+  try {
+    invalid_form = someRandomIntern.makeForm("invalid form", "hoge");
+  } catch (std::exception const &e) {
+    std::cout << e.what() << std::endl;
+  }
+
+#ifdef TEST
+  // test each form
+  testShrubberyCreationForm(*scf);
+  testRobotomyRequestForm(*rrf);
+  testPresidentialPardonForm(*ppf);
+#endif
+
+  delete scf;
+  delete rrf;
+  delete ppf;
+
+  printFooter("end Intern class test");
+}
+
 int main(void) {
-  testShrubberyCreationForm();
-  testRobotomyRequestForm();
-  testPresidentialPardonForm();
+  testIntern();
+  // testShrubberyCreationForm();
+  // testRobotomyRequestForm();
+  // testPresidentialPardonForm();
 }
 
 #ifdef LEAKS
