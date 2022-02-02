@@ -1,37 +1,21 @@
-#include "Bureaucrat.hpp"
+#include "../include/Bureaucrat.hpp"
 
 #include <iostream>
 
-const char* Bureaucrat::GradeTooHighException::kErrMsgGradeTooHigh = "Error: Grade is too high";
+const char* Bureaucrat::GradeTooHighException::kErrMsgGradeTooHigh =
+"Error: Bureaucrat: Grade is too high";
 
-const char* Bureaucrat::GradeTooLowException::kErrMsgGradeTooLow = "Error: Grade is too low";
-
-Bureaucrat::Bureaucrat() {
-  // std::cout << "Bureaucrat's default constructor called" << std::endl;
-}
+const char* Bureaucrat::GradeTooLowException::kErrMsgGradeTooLow =
+"Error: Bureaucrat: Grade is too low";
 
 Bureaucrat::Bureaucrat(const std::string name, int grade)
     : name_(name), grade_(grade) {
   // std::cout << name_ << "'s constructor called" << std::endl;
   if (grade_ < kHighestGrade) {
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   } else if (kLowestGrade < grade_) {
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException();
   }
-}
-
-Bureaucrat::Bureaucrat(Bureaucrat const &other) {
-  // std::cout << "Bureaucrat's copy constructor called" << std::endl;
-  *this = other;
-}
-
-Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other) {
-  // std::cout << "Bureaucrat's assignation operator called" << std::endl;
-  if (this != &other) {
-    const_cast<std::string&>(name_) = other.getName();
-    grade_ = other.getGrade();
-  }
-  return *this;
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -50,7 +34,7 @@ void Bureaucrat::getPromoted() {
   if (kHighestGrade < grade_ && grade_ <= kLowestGrade) {
     --grade_;
   } else {
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   }
 }
 
@@ -58,7 +42,7 @@ void Bureaucrat::getDemoted() {
   if (grade_ != kLowestGrade) {
     ++grade_;
   } else {
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException();
   }
 }
 
