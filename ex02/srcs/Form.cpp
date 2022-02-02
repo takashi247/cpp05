@@ -13,7 +13,7 @@ const char* Form::GradeTooLowException::kErrMsgGradeTooLow =
 const char* Form::NotSignedException::kErrMsgNotSigned=
 "Error: Form: Form has NOT been signed yet";
 
-Form::Form(const std::string name, const int grade_to_sign, const int grade_to_execute)
+Form::Form(const std::string &name, const int grade_to_sign, const int grade_to_execute)
     : name_(name),
       is_signed_(false),
       grade_to_sign_(grade_to_sign),

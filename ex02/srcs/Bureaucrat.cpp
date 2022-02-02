@@ -10,7 +10,7 @@ const char* Bureaucrat::GradeTooHighException::kErrMsgGradeTooHigh =
 const char* Bureaucrat::GradeTooLowException::kErrMsgGradeTooLow =
 "Error: Bureaucrat: Grade is too low";
 
-Bureaucrat::Bureaucrat(const std::string name, int grade)
+Bureaucrat::Bureaucrat(const std::string &name, int grade)
     : name_(name), grade_(grade) {
   // std::cout << name_ << "'s constructor called" << std::endl;
   if (grade_ < kHighestGrade) {

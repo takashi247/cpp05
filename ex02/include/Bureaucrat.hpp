@@ -9,7 +9,7 @@ class Bureaucrat {
  public:
   static const int kHighestGrade = 1;
   static const int kLowestGrade = 150;
-  Bureaucrat(const std::string name, int grade = kLowestGrade);
+  Bureaucrat(const std::string &name, int grade = kLowestGrade);
   virtual ~Bureaucrat();
   const std::string &getName() const;
   int getGrade() const;
@@ -32,7 +32,7 @@ class Bureaucrat {
   Bureaucrat();
   Bureaucrat(const Bureaucrat &other);
   Bureaucrat &operator=(const Bureaucrat &other);
-  const std::string name_;
+  const std::string &name_;
   int grade_;
 };
 
