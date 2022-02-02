@@ -17,7 +17,6 @@ void RobotomyRequestForm::takeAction() const {
   std::cout << "Rizzzzzzzzzzzzzzzzzz...." << std::endl;
   srand(time(NULL));
   int random_num = rand() % kMaxRandomNum;
-  std::cout << "random_num: " << random_num << std::endl;
   if (random_num < kMaxRandomNum / 2) {
     std::cout << "SUCCESS: " << target_ << " has been robotomized" << std::endl;
   } else {

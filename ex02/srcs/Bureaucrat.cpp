@@ -21,16 +21,12 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade)
 
 Bureaucrat::~Bureaucrat() {}
 
-const std::string &Bureaucrat::getName() const {
-  return name_;
-}
+const std::string &Bureaucrat::getName() const { return name_; }
 
-int Bureaucrat::getGrade() const {
-  return grade_;
-}
+int Bureaucrat::getGrade() const { return grade_; }
 
 void Bureaucrat::getPromoted() {
-  if (kHighestGrade < grade_ && grade_ <= kLowestGrade) {
+  if (grade_ != kHighestGrade) {
     --grade_;
   } else {
     throw Bureaucrat::GradeTooHighException();
@@ -45,12 +41,12 @@ void Bureaucrat::getDemoted() {
   }
 }
 
-void Bureaucrat::signForm(Form &f) {
+void Bureaucrat::signForm(Form &form) {
   try {
-    f.beSigned(*this);
-    std::cout << name_ << " signs " << f.getName() << std::endl;
+    form.beSigned(*this);
+    std::cout << name_ << " signs " << form.getName() << std::endl;
   } catch (std::exception const &e) {
-    std::cout << name_ << " cannot sign " << f.getName() << " because " << e.what() << std::endl;
+    std::cout << name_ << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
   }
 }
 

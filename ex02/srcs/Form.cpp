@@ -35,8 +35,8 @@ int Form::getGradeToSign() const { return grade_to_sign_; }
 
 int Form::getGradeToExecute() const { return grade_to_execute_; }
 
-void Form::beSigned(Bureaucrat &b) {
-  if (grade_to_sign_ < b.getGrade()) {
+void Form::beSigned(Bureaucrat &signer) {
+  if (grade_to_sign_ < signer.getGrade()) {
     throw Form::GradeTooLowException();
   } else {
     is_signed_ = true;

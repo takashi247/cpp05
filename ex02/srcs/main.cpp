@@ -39,6 +39,11 @@ void testShrubberyCreationForm() {
 
   // test GradeTooLowExeption for executing
   bob.signForm(form);
+
+  std::cout << std::endl;
+  std::cout << form << std::endl;
+  std::cout << std::endl;
+
   bob.executeForm(form);
 
   // test successful execution
@@ -73,6 +78,11 @@ void testRobotomyRequestForm() {
 
   // test GradeTooLowExeption for executing
   bob.signForm(form);
+
+  std::cout << std::endl;
+  std::cout << form << std::endl;
+  std::cout << std::endl;
+
   bob.executeForm(form);
 
   // test successful execution
@@ -107,6 +117,11 @@ void testPresidentialPardonForm() {
 
   // test GradeTooLowExeption for executing
   bob.signForm(form);
+
+  std::cout << std::endl;
+  std::cout << form << std::endl;
+  std::cout << std::endl;
+
   bob.executeForm(form);
 
   // test successful execution

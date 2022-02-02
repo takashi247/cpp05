@@ -21,16 +21,12 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade)
 
 Bureaucrat::~Bureaucrat() {}
 
-const std::string &Bureaucrat::getName() const {
-  return name_;
-}
+const std::string &Bureaucrat::getName() const { return name_; }
 
-int Bureaucrat::getGrade() const {
-  return grade_;
-}
+int Bureaucrat::getGrade() const { return grade_; }
 
 void Bureaucrat::getPromoted() {
-  if (kHighestGrade < grade_ && grade_ <= kLowestGrade) {
+  if (grade_ != kHighestGrade) {
     --grade_;
   } else {
     throw Bureaucrat::GradeTooHighException();

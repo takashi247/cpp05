@@ -7,6 +7,7 @@ class ShrubberyCreationForm : public Form {
  public:
   ShrubberyCreationForm(const std::string &target);
   virtual ~ShrubberyCreationForm();
+
   void takeAction() const;
 
  private:
@@ -15,9 +16,11 @@ class ShrubberyCreationForm : public Form {
   static const std::string kFileNameSuffix;
   static const int kGradeToSign = 145;
   static const int kGradeToExec = 137;
+
   ShrubberyCreationForm();
   ShrubberyCreationForm(const ShrubberyCreationForm &other);
   ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
+
   const std::string &target_;
 };
 

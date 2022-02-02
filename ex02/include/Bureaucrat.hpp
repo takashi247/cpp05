@@ -7,17 +7,6 @@ class Form;
 
 class Bureaucrat {
  public:
-  static const int kHighestGrade = 1;
-  static const int kLowestGrade = 150;
-  Bureaucrat(const std::string &name, int grade = kLowestGrade);
-  virtual ~Bureaucrat();
-  const std::string &getName() const;
-  int getGrade() const;
-  void getPromoted();
-  void getDemoted();
-  void signForm(Form &f);
-  void executeForm(Form const &form);
-
   class GradeTooHighException : public std::exception {
     virtual const char *what() const throw();
     static const char* kErrMsgGradeTooHigh;
@@ -28,10 +17,24 @@ class Bureaucrat {
     static const char* kErrMsgGradeTooLow;
   };
 
+  static const int kHighestGrade = 1;
+  static const int kLowestGrade = 150;
+
+  Bureaucrat(const std::string &name, int grade = kLowestGrade);
+  virtual ~Bureaucrat();
+
+  const std::string &getName() const;
+  int getGrade() const;
+  void getPromoted();
+  void getDemoted();
+  void signForm(Form &form);
+  void executeForm(Form const &form);
+
  private:
   Bureaucrat();
   Bureaucrat(const Bureaucrat &other);
   Bureaucrat &operator=(const Bureaucrat &other);
+
   const std::string &name_;
   int grade_;
 };

@@ -34,6 +34,11 @@ void testShrubberyCreationForm(Form &form) {
 
   // test GradeTooLowExeption for executing
   bob.signForm(form);
+
+  std::cout << std::endl;
+  std::cout << form << std::endl;
+  std::cout << std::endl;
+
   bob.executeForm(form);
 
   // test successful execution
@@ -65,6 +70,11 @@ void testRobotomyRequestForm(Form &form) {
 
   // test GradeTooLowExeption for executing
   bob.signForm(form);
+
+  std::cout << std::endl;
+  std::cout << form << std::endl;
+  std::cout << std::endl;
+
   bob.executeForm(form);
 
   // test successful execution
@@ -96,6 +106,11 @@ void testPresidentialPardonForm(Form &form) {
 
   // test GradeTooLowExeption for executing
   bob.signForm(form);
+
+  std::cout << std::endl;
+  std::cout << form << std::endl;
+  std::cout << std::endl;
+
   bob.executeForm(form);
 
   // test successful execution
@@ -104,10 +119,15 @@ void testPresidentialPardonForm(Form &form) {
   printFooter("end PresidentialPardonForm class test");
 }
 
-void testIntern() {
+int main() {
   printHeader("start Intern class test");
 
+  // test constructors / assignation operator
   Intern someRandomIntern;
+  Intern copy(someRandomIntern);
+  Intern assigned;
+  assigned = someRandomIntern;
+
   Form* scf;
   Form* rrf;
   Form* ppf;
@@ -137,13 +157,6 @@ void testIntern() {
   delete ppf;
 
   printFooter("end Intern class test");
-}
-
-int main(void) {
-  testIntern();
-  // testShrubberyCreationForm();
-  // testRobotomyRequestForm();
-  // testPresidentialPardonForm();
 }
 
 #ifdef LEAKS
