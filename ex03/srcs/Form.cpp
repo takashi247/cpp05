@@ -18,7 +18,6 @@ Form::Form(const std::string &name, const int grade_to_sign, const int grade_to_
       is_signed_(false),
       grade_to_sign_(grade_to_sign),
       grade_to_execute_(grade_to_execute) {
-  // std::cout << "Form " << name_ << "'s constructor called" << std::endl;
   if (grade_to_sign_ < Bureaucrat::kHighestGrade || grade_to_execute_ < Bureaucrat::kHighestGrade) {
     throw Form::GradeTooHighException();
   } else if (Bureaucrat::kLowestGrade < grade_to_sign_ || Bureaucrat::kLowestGrade < grade_to_execute_) {
@@ -26,9 +25,7 @@ Form::Form(const std::string &name, const int grade_to_sign, const int grade_to_
   }
 }
 
-Form::~Form() {
-  // std::cout << "Form's destructor called" << std::endl;
-}
+Form::~Form() {}
 
 const std::string &Form::getName() const { return name_; }
 
