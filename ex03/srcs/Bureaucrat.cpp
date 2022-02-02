@@ -48,12 +48,12 @@ void Bureaucrat::getDemoted() {
   }
 }
 
-void Bureaucrat::signForm(Form &f) {
+void Bureaucrat::signForm(Form &form) {
   try {
-    f.beSigned(*this);
-    std::cout << name_ << " signs " << f.getName() << std::endl;
+    form.beSigned(*this);
+    std::cout << name_ << " signs " << form.getName() << std::endl;
   } catch (std::exception const &e) {
-    std::cout << name_ << " cannot sign " << f.getName() << " because " << e.what() << std::endl;
+    std::cout << name_ << " cannot sign " << form.getName() << " because " << e.what() << std::endl;
   }
 }
 
