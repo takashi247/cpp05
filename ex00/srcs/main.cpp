@@ -1,4 +1,4 @@
-#include "Bureaucrat.hpp"
+#include "../include/Bureaucrat.hpp"
 
 #include <iostream>
 
@@ -18,7 +18,7 @@ int main(void)
 
   // test error handling
   Bureaucrat vice_minister("Vice Minister", 1);
-  Bureaucrat intern("Intern", 150);
+  Bureaucrat intern("Intern");
   std::cout << vice_minister << std::endl;
   std::cout << intern << std::endl;
 
