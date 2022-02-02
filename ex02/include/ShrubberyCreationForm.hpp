@@ -6,7 +6,7 @@
 class ShrubberyCreationForm : public Form {
  public:
   ShrubberyCreationForm(const std::string target);
-  ~ShrubberyCreationForm();
+  virtual ~ShrubberyCreationForm();
   void takeAction() const;
 
  private:

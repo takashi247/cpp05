@@ -7,7 +7,7 @@ class Bureaucrat;
 
 class Form {
  public:
-  ~Form();
+  virtual ~Form();
   const std::string &getName() const;
   const bool &checkIfSigned() const;
   int getGradeToSign() const;
