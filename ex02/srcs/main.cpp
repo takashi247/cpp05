@@ -1,52 +1,58 @@
 #include "../include/Bureaucrat.hpp"
-#include "../include/Form.hpp"
+#include "../include/ShrubberyCreationForm.hpp"
 
 #include <iostream>
 
-int main(void)
-{
-  Bureaucrat john("John", 100);
+void printHeader(std::string header) {
+  std::cout << "\n---" << header << "---" << std::endl;
+}
 
-  std::cout << john << std::endl;
+void printFooter(std::string footer) {
+  std::cout << "---" << footer << "---\n" << std::endl;
+}
 
-  Form form("simple form", 99, 99);
+void testShrubberyCreationForm() {
+  printHeader("start ShrubberyCreationForm class test");
+
+  Bureaucrat john_100("John", 100);
+  Bureaucrat bob_140("Bob", 140);
+  Bureaucrat will_150("Will", 150);
+
+  std::cout << john_100 << std::endl;
+  std::cout << bob_140 << std::endl;
+  std::cout << will_150 << std::endl;
+
+  // test for ShrubberyCreationForm
+  ShrubberyCreationForm s_form("my_home");
 
   std::cout << std::endl;
-  std::cout << form << std::endl;
+  std::cout << s_form << std::endl;
   std::cout << std::endl;
 
-  // test exception handling for form
-  john.signForm(form);
+  // test NotSignedException
+  john_100.executeForm(s_form);
 
-  // get promoted
-  john.getPromoted();
-  std::cout << john << std::endl;
+  // test GradeTooLowExeption for signing
+  will_150.signForm(s_form);
 
-  // test successful signs
-  john.signForm(form);
+  // test GradeTooLowExeption for executing
+  bob_140.signForm(s_form);
+  bob_140.executeForm(s_form);
 
-  std::cout << std::endl;
-  std::cout << form << std::endl;
-  std::cout << std::endl;
+  // test successful execution
+  john_100.executeForm(s_form);
 
-  // test error handling for Form
-  try {
-    Form too_high("too high", -100, 100);
-  } catch (std::exception const &e) {
-    std::cout << e.what() << std::endl;
-  }
-  try {
-    Form too_low("too low", 100, 300);
-  } catch (std::exception const &e) {
-    std::cout << e.what() << std::endl;
-  }
+  printFooter("end ShrubberyCreationForm class test");
+}
+
+int main(void) {
+  testShrubberyCreationForm();
 }
 
 #ifdef LEAKS
 void	detect_leak(void)__attribute__((destructor));
 
-void	detect_leak(void)
-{
+void	detect_leak(void) {
   system("leaks -q a.out");
 }
 #endif

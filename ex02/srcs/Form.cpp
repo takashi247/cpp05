@@ -10,6 +10,9 @@ const char* Form::GradeTooHighException::kErrMsgGradeTooHigh =
 const char* Form::GradeTooLowException::kErrMsgGradeTooLow =
 "Error: Form: Grade is too low";
 
+const char* Form::NotSignedException::kErrMsgNotSigned=
+"Error: Form: Form has NOT been signed yet";
+
 Form::Form(const std::string name, const int grade_to_sign, const int grade_to_execute)
     : name_(name),
       is_signed_(false),
@@ -43,12 +46,26 @@ void Form::beSigned(Bureaucrat &b) {
   }
 }
 
+void Form::execute(Bureaucrat const &executor) const {
+  if (is_signed_ == false) {
+    throw Form::NotSignedException();
+  } else if (grade_to_execute_ < executor.getGrade()) {
+    throw Form::GradeTooLowException();
+  } else {
+    takeAction();
+  }
+}
+
 const char *Form::GradeTooHighException::what() const throw() {
   return Form::GradeTooHighException::kErrMsgGradeTooHigh;
 }
 
 const char *Form::GradeTooLowException::what() const throw() {
   return Form::GradeTooLowException::kErrMsgGradeTooLow;
+}
+
+const char *Form::NotSignedException::what() const throw() {
+  return Form::NotSignedException::kErrMsgNotSigned;
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &f) {

@@ -16,6 +16,7 @@ class Bureaucrat {
   void getPromoted();
   void getDemoted();
   void signForm(Form &f);
+  void executeForm(Form const &form);
 
   class GradeTooHighException : public std::exception {
     virtual const char *what() const throw();

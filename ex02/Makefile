@@ -10,7 +10,8 @@ OBJSDIR		:= objs/
 
 SRCS		:= main.cpp \
 				Bureaucrat.cpp \
-				Form.cpp
+				Form.cpp \
+				ShrubberyCreationForm.cpp
 
 OBJS		:= $(addprefix $(OBJSDIR), $(SRCS:.cpp=.o))
 
@@ -45,6 +46,7 @@ clean:
 
 fclean:		clean
 	$(RM) $(NAME)
+	$(RM) *_shrubbery
 
 re:			fclean all
 
