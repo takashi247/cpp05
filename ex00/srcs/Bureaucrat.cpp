@@ -12,9 +12,9 @@ Bureaucrat::Bureaucrat(const std::string name, int grade)
     : name_(name), grade_(grade) {
   // std::cout << name_ << "'s constructor called" << std::endl;
   if (grade_ < kHighestGrade) {
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   } else if (kLowestGrade < grade_) {
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException();
   }
 }
 
@@ -34,7 +34,7 @@ void Bureaucrat::getPromoted() {
   if (kHighestGrade < grade_ && grade_ <= kLowestGrade) {
     --grade_;
   } else {
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   }
 }
 
@@ -42,7 +42,7 @@ void Bureaucrat::getDemoted() {
   if (grade_ != kLowestGrade) {
     ++grade_;
   } else {
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException();
   }
 }
 

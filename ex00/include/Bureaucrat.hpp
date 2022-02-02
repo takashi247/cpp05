@@ -8,7 +8,7 @@ class Bureaucrat {
   static const int kHighestGrade = 1;
   static const int kLowestGrade = 150;
   Bureaucrat(const std::string name, int grade = kLowestGrade);
-  ~Bureaucrat();
+  virtual ~Bureaucrat();
   const std::string &getName() const;
   int getGrade() const;
   void getPromoted();
@@ -24,7 +24,7 @@ class Bureaucrat {
     static const char* kErrMsgGradeTooLow;
   };
 
- protected:
+ private:
   Bureaucrat();
   Bureaucrat(const Bureaucrat &other);
   Bureaucrat &operator=(const Bureaucrat &other);
