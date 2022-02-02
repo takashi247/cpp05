@@ -38,7 +38,7 @@ const std::string ShrubberyCreationForm::kShrubberyAsciiArt =
 
 const std::string ShrubberyCreationForm::kFileNameSuffix = "_shrubbery";
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
     : Form(kFormName, kGradeToSign, kGradeToExec), target_(target) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
