@@ -1,6 +1,7 @@
 #include "../include/Bureaucrat.hpp"
 #include "../include/ShrubberyCreationForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
+#include "../include/PresidentialPardonForm.hpp"
 
 #include <iostream>
 
@@ -80,9 +81,44 @@ void testRobotomyRequestForm() {
   printFooter("end RobotomyRequestForm class test");
 }
 
+void testPresidentialPardonForm() {
+  printHeader("start PresidentialPardonForm class test");
+
+  Bureaucrat john("John", 1);
+  Bureaucrat bob("Bob", 10);
+  Bureaucrat will("Will", 30);
+
+  std::cout << john << std::endl;
+  std::cout << bob << std::endl;
+  std::cout << will << std::endl;
+
+  // test for ShrubberyCreationForm
+  PresidentialPardonForm form("Prime Minister");
+
+  std::cout << std::endl;
+  std::cout << form << std::endl;
+  std::cout << std::endl;
+
+  // test NotSignedException
+  john.executeForm(form);
+
+  // test GradeTooLowExeption for signing
+  will.signForm(form);
+
+  // test GradeTooLowExeption for executing
+  bob.signForm(form);
+  bob.executeForm(form);
+
+  // test successful execution
+  john.executeForm(form);
+
+  printFooter("end PresidentialPardonForm class test");
+}
+
 int main(void) {
   testShrubberyCreationForm();
   testRobotomyRequestForm();
+  testPresidentialPardonForm();
 }
 
 #ifdef LEAKS
