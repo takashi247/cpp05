@@ -3,6 +3,8 @@
 
 #include <string>
 
+class Form;
+
 class Bureaucrat {
  public:
   static const int kHighestGrade = 1;
@@ -13,6 +15,7 @@ class Bureaucrat {
   int getGrade() const;
   void getPromoted();
   void getDemoted();
+  void signForm(Form &f);
 
   class GradeTooHighException : public std::exception {
     virtual const char *what() const throw();

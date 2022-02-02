@@ -1,4 +1,5 @@
-#include "Bureaucrat.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/Form.hpp"
 
 #include <iostream>
 
@@ -8,44 +9,28 @@ int main(void)
 
   std::cout << john << std::endl;
 
+  Form form("simple form", 99, 99);
+
+  std::cout << form << std::endl;
+
+  // test exception handling for form
+  john.signForm(form);
+
   // get promoted
   john.getPromoted();
   std::cout << john << std::endl;
 
-  // get demoted
-  john.getDemoted();
-  std::cout << john << std::endl;
+  // test exception handling for form
+  john.signForm(form);
 
-  // test error handling
-  Bureaucrat vice_minister("Vice Minister", 1);
-  Bureaucrat intern("Intern", 150);
-  std::cout << vice_minister << std::endl;
-  std::cout << intern << std::endl;
-
+  // test error handling for Form
   try {
-    vice_minister.getPromoted();
+    Form too_high("too high", -100, 100);
   } catch (std::exception const &e) {
     std::cout << e.what() << std::endl;
   }
   try {
-    intern.getDemoted();
-  } catch (std::exception const &e) {
-    std::cout << e.what() << std::endl;
-  }
-
-  // test constructor error handling
-  try {
-    Bureaucrat no_name;
-  } catch (std::exception const &e) {
-    std::cout << e.what() << std::endl;
-  }
-  try {
-    Bureaucrat too_low("too low", 200);
-  } catch (std::exception const &e) {
-    std::cout << e.what() << std::endl;
-  }
-  try {
-    Bureaucrat too_high("too high", -200);
+    Form too_low("too low", 100, 300);
   } catch (std::exception const &e) {
     std::cout << e.what() << std::endl;
   }
