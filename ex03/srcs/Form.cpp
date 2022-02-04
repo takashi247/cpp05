@@ -29,7 +29,7 @@ Form::~Form() {}
 
 const std::string &Form::getName() const { return name_; }
 
-const bool &Form::checkIfSigned() const { return is_signed_; }
+bool Form::checkIfSigned() const { return is_signed_; }
 
 int Form::getGradeToSign() const { return grade_to_sign_; }
 

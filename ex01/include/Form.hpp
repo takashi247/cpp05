@@ -10,7 +10,7 @@ class Form {
   Form(const std::string &name, const int grade_to_sign, const int grade_to_execute);
   ~Form();
   const std::string &getName() const;
-  const bool &checkIfSigned() const;
+  bool checkIfSigned() const;
   int getGradeToSign() const;
   int getGradeToExecute() const;
   void beSigned(Bureaucrat &signer);

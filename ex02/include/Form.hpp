@@ -25,7 +25,7 @@ class Form {
   virtual ~Form();
 
   const std::string &getName() const;
-  const bool &checkIfSigned() const;
+  bool checkIfSigned() const;
   int getGradeToSign() const;
   int getGradeToExecute() const;
   void beSigned(Bureaucrat &signer);
